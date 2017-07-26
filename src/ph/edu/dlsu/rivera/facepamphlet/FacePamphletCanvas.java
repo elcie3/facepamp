@@ -1,3 +1,5 @@
+package ph.edu.dlsu.rivera.facepamphlet;
+
 /*
  * File: FacePamphletCanvas.java
  * -----------------------------

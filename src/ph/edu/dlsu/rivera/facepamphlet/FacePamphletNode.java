@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package facepamphlet;
+package ph.edu.dlsu.rivera.facepamphlet;
 
 import acm.graphics.GCanvas;
 import acm.graphics.GLabel;

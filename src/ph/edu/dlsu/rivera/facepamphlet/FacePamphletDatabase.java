@@ -1,3 +1,5 @@
+package ph.edu.dlsu.rivera.facepamphlet;
+
 /*
  * File: FacePamphletDatabase.java
  * -------------------------------
@@ -7,8 +9,7 @@
  */
 
 import acm.graphics.GImage;
-import facepamphlet.FacePamphletEdge;
-import facepamphlet.FacePamphletNode;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

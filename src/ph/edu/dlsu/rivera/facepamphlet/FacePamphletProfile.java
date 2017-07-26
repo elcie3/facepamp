@@ -1,3 +1,5 @@
+package ph.edu.dlsu.rivera.facepamphlet;
+
 /*
  * File: FacePamphletProfile.java
  * ------------------------------
@@ -9,7 +11,7 @@
  */
 
 import acm.graphics.*;
-import facepamphlet.FacePamphletNode;
+
 import java.util.*;
 
 public class FacePamphletProfile implements FacePamphletConstants {
@@ -55,8 +57,8 @@ public class FacePamphletProfile implements FacePamphletConstants {
     public void setImage(String image) {
         // You fill this in
         if (!image.equals("")) {
-            gImageobject.setImage(System.getProperty("user.dir") + "\\src\\facepamphlet\\images\\" + image);
-            this.image = image;
+            gImageobject.setImage(System.getProperty("user.dir") + "\\images\\" + image);
+            this.image = image; 
         }
 
     }

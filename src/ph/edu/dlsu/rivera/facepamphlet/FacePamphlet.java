@@ -1,3 +1,5 @@
+package ph.edu.dlsu.rivera.facepamphlet;
+
 /* 
  * File: FacePamphlet.java
  * -----------------------
@@ -9,19 +11,20 @@ import acm.program.*;
 import acm.graphics.*;
 import acm.io.IOConsole;
 import acm.util.*;
-import facepamphlet.FacePamphletEdge;
-import facepamphlet.FacePamphletNeworkCanvas;
-import facepamphlet.FacePamphletNode;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import ph.edu.dlsu.rivera.artistry.Artistry;
+import static ph.edu.dlsu.rivera.artistry.Artistry.APPLICATION_HEIGHT;
+import static ph.edu.dlsu.rivera.artistry.Artistry.APPLICATION_WIDTH;
+import ph.edu.dlsu.rivera.hangman.Hangman;
 import sun.awt.im.InputMethodJFrame;
 
 public class FacePamphlet extends Program implements FacePamphletConstants {
-
+boolean visible=true;
     JFrame networkframe;
     ArrayList<String> names = new ArrayList<>();
     FacePamphletCanvas canvas;
@@ -190,6 +193,39 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
 
             }
 
+        }else if (action.equals("Hangman")) {
+            JFrame hangmanFrame = new JFrame("Hangman");
+            hangmanFrame.setVisible(true);
+            hangmanFrame.setSize(700,500);
+            
+            System.out.println("Launched Hangman");
+            
+            Hangman hangmanObject = new Hangman();
+            hangmanObject.run();
+            IOConsole console = hangmanObject.getConsole();
+
+            
+            hangmanFrame.add(hangmanObject.getContentPane());
+            
+            hangmanFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        }else if (action.equals("Artistry")) {
+            Artistry art = new Artistry();
+           art.run();
+            
+            
+           System.out.println("Launched artistry");
+           
+           
+           canvas.add(art.face);
+           canvas.add(art.mouth);
+           canvas.add(art.eye1);
+           canvas.add(art.eye2);
+           art.eye1.sendToBack();
+           art.eye2.sendToBack();
+           art.mouth.sendToBack();
+           art.face.sendToBack();
+           
+           
         }
         updateNetwork();
         try {
@@ -240,7 +276,11 @@ public class FacePamphlet extends Program implements FacePamphletConstants {
         add(txtFieldRemoveFriend, WEST);
         add(bRemove_friend, WEST);
         add(bShowNetwork, WEST);
-
+        add(new JButton("Artistry"),EAST);
+         add(new JButton("Hangman"),EAST);
+         add(new JButton("Calculator"),EAST);
+         add(new JButton("Breakout"),EAST);
+           addActionListeners();
         //hangman
         //network visualization
         System.out.println("network");
